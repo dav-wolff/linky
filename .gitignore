@@ -1,0 +1,8 @@
+.*
+!.gitignore
+
+*.jpg
+*.webp
+*.png
+
+/build
