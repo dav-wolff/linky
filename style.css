@@ -47,17 +47,12 @@ img {
 }
 
 .background {
+	/* particles don't display without this */
+	z-index: 0;
 	position: relative;
 	flex-grow: 1;
 	background: linear-gradient(to top, var(--background-start) 0%, var(--background-end) 100%);
 	padding-top: 1.5em;
-}
-
-/* draw over waves and particles */
-header,
-main {
-	position: relative;
-	z-index: 1;
 }
 
 .banner {
@@ -144,6 +139,7 @@ a:active .logo {
 }
 
 .waves {
+	z-index: -1;
 	--position: 2em;
 }
 
@@ -188,6 +184,7 @@ a:active .logo {
 }
 
 .particles {
+	z-index: -1;
 	position: absolute;
 	top: 0;
 	bottom: 0;
