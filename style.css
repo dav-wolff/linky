@@ -46,6 +46,11 @@ img {
 	background: black;
 }
 
+svg {
+	/* svg can move slightly on firefox when scaled (a:hover), this makes sure they don't get clipped */
+	overflow: visible;
+}
+
 .background {
 	/* particles don't display without this */
 	z-index: 0;
