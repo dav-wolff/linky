@@ -13,6 +13,7 @@ writeShellScriptBin "build-linky" ''
 	cd $1
 	
 	${lib.getExe gnused} -e '/<link.*rel="preload".*as="font".*>'/d \
+		-e "s|URL|$LINKY_URL|g" \
 		-e "s|Name|$LINKY_NAME|g" \
 		-e "s|#instagram|$LINKY_INSTAGRAM|" \
 		-e "s|#bluesky|$LINKY_BLUESKY|" \
