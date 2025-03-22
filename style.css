@@ -4,6 +4,7 @@
 	--background-end: rgb(3, 28, 84);
 	--accent-hsl: 57, 87%, 49%;
 	--accent: hsl(var(--accent-hsl));
+	--expand-ease: cubic-bezier(0.2, 0.05, 0.25, 1);
 }
 
 * {
@@ -22,14 +23,15 @@ body {
 html {
 	line-height: 1;
 	font-size: 100%;
+	/* accent color on mobile */
+	background: color-mix(in srgb, var(--background-start), var(--accent) 87.5%);
 }
 
 body {
 	color: white;
 	font-size: clamp(1rem, 7.8svw, 6svh - 1.8svw);
-	/* accent color on mobile */
-	background: color-mix(in srgb, var(--background-start), var(--accent) 87.5%);
 	min-width: min-content;
+	background: var(--background-start);
 	display: flex;
 	flex-direction: column;
 }
@@ -74,6 +76,24 @@ svg {
 
 .face {
 	position: relative;
+	animation: pop-in-1 0.25s 0.15s cubic-bezier(0, 0.2, 0.7, 1) backwards,
+		pop-in-2 0.15s 0.4s cubic-bezier(0.5, 0, 1, 0.7);
+}
+
+@keyframes pop-in-1 {
+	0% {
+		transform: scale(0);
+	}
+	
+	100% {
+		transform: scale(1.15);
+	}
+}
+
+@keyframes pop-in-2 {
+	0% {
+		transform: scale(1.15);
+	}
 }
 
 .face::after {
@@ -95,6 +115,11 @@ header {
 	gap: 0.2em;
 	font-size: 2.5em;
 	margin-bottom: 0.5em;
+}
+
+h1 {
+	transform-origin: top;
+	animation: expand 0.35s 0.2s var(--expand-ease) backwards;
 }
 
 main {
@@ -120,6 +145,20 @@ a {
 	transition: transform 0.1s;
 	touch-action: manipulation;
 	user-select: none;
+	transform-origin: top;
+	animation: expand 0.3s calc(0.25s + 0.08s * var(--i)) var(--expand-ease) backwards;
+}
+
+a:nth-child(1) { --i: 0; }
+a:nth-child(2) { --i: 1; }
+a:nth-child(3) { --i: 2; }
+a:nth-child(4) { --i: 3; }
+
+@keyframes expand {
+	0% {
+		opacity: 0;
+		transform: scale(0.6, 0.2);
+	}
 }
 
 a:hover,
@@ -295,6 +334,18 @@ a:active .logo {
 	
 	main > *:nth-child(even) {
 		justify-self: start;
+	}
+	
+	h1 {
+		transform-origin: left;
+	}
+	
+	a:nth-child(2) {
+		--i: 0;
+	}
+	
+	a:nth-child(3), a:nth-child(4) {
+		--i: 1;
 	}
 	
 	.waves {
