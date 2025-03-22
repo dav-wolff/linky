@@ -2,6 +2,7 @@
 , writeShellScriptBin
 , lightningcss
 , subfont
+, gnused
 }:
 
 writeShellScriptBin "build-linky" ''
@@ -11,7 +12,7 @@ writeShellScriptBin "build-linky" ''
 	mkdir -p $1
 	cd $1
 	
-	sed -e '/<link.*rel="preload".*as="font".*>'/d \
+	${lib.getExe gnused} -e '/<link.*rel="preload".*as="font".*>'/d \
 		-e "s|Name|$LINKY_NAME|g" \
 		-e "s|#instagram|$LINKY_INSTAGRAM|" \
 		-e "s|#bluesky|$LINKY_BLUESKY|" \
@@ -45,7 +46,7 @@ writeShellScriptBin "build-linky" ''
 	) > bundle.css
 	${lib.getExe lightningcss} --minify --bundle bundle.css |
 		(echo -ne '\t\t<style>\n\t\t\t'; cat -; echo -e '\t\t</style>') |
-		sed -i -e '/<link rel="stylesheet" href="\/style.css">/r /dev/stdin' \
+		${lib.getExe gnused} -i -e '/<link rel="stylesheet" href="\/style.css">/r /dev/stdin' \
 			-e '/<link.*rel="stylesheet".*>/d' \
 			index.html
 	rm bundle.css
