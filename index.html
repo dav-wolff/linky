@@ -24,13 +24,13 @@
 		<link rel="icon" type="image/png" sizes="192x192" href="/icon_192.png">
 	</head>
 	<body>
-		<img class="banner" width="1000" height="297" src="/banner.jpg" loading="lazy" alt="">
+		<img id="banner" class="banner" width="1000" height="297" src="/banner.jpg" loading="lazy" alt="">
 		<div class="background">
 			<header>
 				<div class="face">
 					<picture>
 						<source srcset="/face.webp" type="image/webp">
-						<img src="/face.jpg" loading="lazy" alt="">
+						<img id="face" src="/face.jpg" loading="lazy" alt="">
 					</picture>
 				</div>
 				<h1>Name</h1>
@@ -61,6 +61,8 @@
 					<span>Telegram</span>
 				</a>
 			</main>
+			<script src="/thumbhash.js">
+			</script>
 			<div class="waves" aria-hidden="true">
 				<div></div>
 				<div></div>
