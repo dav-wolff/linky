@@ -314,7 +314,7 @@ a:active .logo {
 	}
 }
 
-@media (orientation: landscape) and (not ((min-width: 800px) and (min-height: 600px))) {
+@media (orientation: landscape) and (height < 600px) {
 	body {
 		font-size: clamp(1rem, 9.8svh, 6.5svw);
 	}
@@ -360,7 +360,7 @@ a:active .logo {
 	}
 }
 
-@media (min-width: 800px) and (min-height: 600px) {
+@media ((orientation: portrait) and (width >= 800px)) or ((orientation: landscape) and (height >= 600px)) {
 	body {
 		font-size: clamp(1rem, 4.8svh, 3rem);
 	}
