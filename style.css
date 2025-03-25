@@ -279,7 +279,7 @@ a:active .logo {
 
 @keyframes particle {
 	0% {
-		transform: translate(calc(var(--randomXStart) * 1%), 0);
+		transform: translate(var(--xStart), 0);
 		opacity: 0;
 	}
 	
