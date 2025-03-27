@@ -3,6 +3,7 @@
 , lightningcss
 , subfont
 , uglify-js
+, brotli
 }:
 
 writeShellApplication {
@@ -12,6 +13,7 @@ writeShellApplication {
 		lightningcss
 		subfont
 		uglify-js
+		brotli
 	];
 	
 	text = ''
@@ -70,6 +72,9 @@ writeShellApplication {
 		rm style.css
 		rm -r subfont
 		rm thumbhash.js
+		
+		brotli -9 index.html -o index.html.brotli
+		brotli -9 GolosText.ttf -o GolosText.ttf.brotli
 		
 		echo "Successfully built linky"
 	'';
