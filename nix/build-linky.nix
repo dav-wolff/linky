@@ -46,7 +46,10 @@ writeShellApplication {
 		ln -s "$LINKY_ICON_192" icon_192.png
 		ln -s "$LINKY_BANNER_JPG" banner.jpg
 		ln -s "$LINKY_FACE_JPG" face.jpg
-		ln -s "$LINKY_FACE_WEBP" face.webp
+		ln -s "$LINKY_FACE_125_WEBP" face_125.webp
+		ln -s "$LINKY_FACE_250_WEBP" face_250.webp
+		ln -s "$LINKY_FACE_500_WEBP" face_500.webp
+		ln -s "$LINKY_FACE_1000_WEBP" face_1000.webp
 		
 		sed -e "s|LINKY_BANNER_THUMBHASH|$LINKY_BANNER_THUMBHASH|" \
 			-e "s|LINKY_FACE_THUMBHASH|$LINKY_FACE_THUMBHASH|" \
