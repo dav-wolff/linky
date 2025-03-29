@@ -6,18 +6,11 @@
 	
 	outputs = { self, nixpkgs, flake-utils, ... }: {
 		overlays = {
-			subfont = final: prev: {
-				subfont = final.callPackage ./nix/subfont.nix {};
-			};
-			
 			linky = final: prev: {
 				build-linky = prev.callPackage ./nix/build-linky.nix {};
 			};
 			
-			default = nixpkgs.lib.composeManyExtensions (with self.overlays; [
-				subfont
-				linky
-			]);
+			default = self.overlays.linky;
 		};
 	} // flake-utils.lib.eachDefaultSystem (system: let
 		pkgs = import nixpkgs {
@@ -28,7 +21,7 @@
 		};
 	in {
 		packages = {
-			inherit (pkgs) subfont build-linky;
+			inherit (pkgs) build-linky;
 		};
 		
 		apps.default = {
