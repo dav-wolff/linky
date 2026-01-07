@@ -8,6 +8,7 @@
 		overlays = {
 			linky = final: prev: {
 				build-linky = prev.callPackage ./nix/build-linky.nix {};
+				linky-demo = prev.callPackage ./nix/demo.nix {};
 			};
 			
 			default = self.overlays.linky;
@@ -21,14 +22,23 @@
 		};
 	in {
 		packages = {
-			inherit (pkgs) build-linky;
+			inherit (pkgs) build-linky linky-demo;
 		};
 		
-		apps.default = {
-			type = "app";
-			program = toString (with pkgs; writeShellScript "serve-linky" ''
-				${lib.getExe live-server} --open
-			'');
+		apps = {
+			default = {
+				type = "app";
+				program = toString (with pkgs; writeShellScript "serve-linky" ''
+					${lib.getExe live-server} --open
+				'');
+			};
+			serve-demo = {
+				type = "app";
+				program = toString (with pkgs; writeShellScript "serve-linky-demo" ''
+					cd ${linky-demo}
+					${lib.getExe live-server} --open
+				'');
+			};
 		};
 		
 		devShells.default = pkgs.mkShell {

@@ -37,19 +37,19 @@ writeShellApplication {
 		rm font.css
 		
 		cp --no-preserve=mode ${../style.css} style.css
-		ln -s "$LINKY_ICON_16" icon_16.png
-		ln -s "$LINKY_ICON_32" icon_32.png
-		ln -s "$LINKY_ICON_48" icon_48.png
-		ln -s "$LINKY_ICON_64" icon_64.png
-		ln -s "$LINKY_ICON_96" icon_96.png
-		ln -s "$LINKY_ICON_144" icon_144.png
-		ln -s "$LINKY_ICON_192" icon_192.png
-		ln -s "$LINKY_BANNER_JPG" banner.jpg
-		ln -s "$LINKY_FACE_JPG" face.jpg
-		ln -s "$LINKY_FACE_125_WEBP" face_125.webp
-		ln -s "$LINKY_FACE_250_WEBP" face_250.webp
-		ln -s "$LINKY_FACE_500_WEBP" face_500.webp
-		ln -s "$LINKY_FACE_1000_WEBP" face_1000.webp
+		ln -s "$LINKY_ASSETS/icon_16.png" icon_16.png
+		ln -s "$LINKY_ASSETS/icon_32.png" icon_32.png
+		ln -s "$LINKY_ASSETS/icon_48.png" icon_48.png
+		ln -s "$LINKY_ASSETS/icon_64.png" icon_64.png
+		ln -s "$LINKY_ASSETS/icon_96.png" icon_96.png
+		ln -s "$LINKY_ASSETS/icon_144.png" icon_144.png
+		ln -s "$LINKY_ASSETS/icon_192.png" icon_192.png
+		ln -s "$LINKY_ASSETS/banner.jpg" banner.jpg
+		ln -s "$LINKY_ASSETS/face.jpg" face.jpg
+		ln -s "$LINKY_ASSETS/face_125.webp" face_125.webp
+		ln -s "$LINKY_ASSETS/face_250.webp" face_250.webp
+		ln -s "$LINKY_ASSETS/face_500.webp" face_500.webp
+		ln -s "$LINKY_ASSETS/face_1000.webp" face_1000.webp
 		
 		sed -e "s|LINKY_BANNER_THUMBHASH|$LINKY_BANNER_THUMBHASH|" \
 			-e "s|LINKY_FACE_THUMBHASH|$LINKY_FACE_THUMBHASH|" \
