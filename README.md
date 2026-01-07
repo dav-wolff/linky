@@ -4,6 +4,12 @@ Linky is a personal project for a website linking to profiles on several social 
 It is focused on aesthetics and a fast first site load. The entire site excluding high resolution
 pictures is less than 10 kilobytes and loads very quickly.
 
+## Demo site
+
+You can see a demo of the site at [**https://linky.dav.dev**](https://linky.dav.dev). Try different screen / window sizes,
+orientations, or devices. Note that the portrait layout with the banner on top looks much better with a proper
+banner than with the stretched out placeholder.
+
 ## Features
 
 - Responsive design fitting portrait and landscape mobile as well as desktop layouts
