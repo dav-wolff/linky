@@ -3,6 +3,7 @@
 
 *.jpg
 *.webp
-*.png
+icon_*.png
 
+result
 /build
